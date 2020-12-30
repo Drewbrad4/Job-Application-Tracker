@@ -9,6 +9,7 @@ import {
 import Header from './Components/Header'
 import ApplicationIndex from './Pages/ApplicationIndex'
 import ApplicationShow from './Pages/ApplicationShow'
+import ApplicationEdit from './Pages/ApplicationEdit'
 import NewApplication from './Pages/NewApplication'
 import Home from './Pages/Home'
 
@@ -49,7 +50,7 @@ class App extends React.Component {
     })
     .then(response => {
       if(response.status === 200){
-      this.applicationIndex()
+        this.applicationIndex()
       } else if(response.status === 422){
         alert("Invalid Submission")
       }
@@ -57,6 +58,25 @@ class App extends React.Component {
     })
     .catch(errors => {
       console.log("create errors:", errors);
+    })
+  }
+
+  updateApplication = (application, id) => {
+    return fetch(`/applications/${id}`, {
+      body: JSON.stringify(application),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if(response.status === 200){
+        this.applicationIndex()
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("edit errors", errors)
     })
   }
 
@@ -69,7 +89,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route
-            path="/new" render={(props) => {
+            path="/newapplication" render={(props) => {
               return (
                 <NewApplication
                   createNewApplication={ this.createNewApplication }
@@ -78,7 +98,7 @@ class App extends React.Component {
             }}
           />
           <Route
-            path="/index" render={(props) => {
+            path="/applications" render={(props) => {
               return (
                 <ApplicationIndex
                   applications={ this.state.applications }
@@ -87,12 +107,25 @@ class App extends React.Component {
             }}
           />
           <Route
-            path="/applications/:id"
+            path="/application/:id"
             render={ (props) => {
               let id = props.match.params.id
               let application = this.state.applications.find(application => application.id === parseInt(id))
               return(
                 <ApplicationShow application={ application }/>
+              )
+            }}
+          />
+          <Route
+            path="/editapplication/:id"
+            render={ (props) => {
+              let id = props.match.params.id
+              let application = this.state.applications.find(application => application.id === parseInt(id))
+              return(
+                <ApplicationEdit
+                  application={ application }
+                  updateApplication={ this.updateApplication }
+                />
               )
             }}
           />

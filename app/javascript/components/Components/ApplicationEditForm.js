@@ -3,23 +3,23 @@ import PropTypes from "prop-types"
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 
-class ApplicationForm extends Component {
+class ApplicationEditForm extends Component {
   constructor(props){
     super(props)
     this.state = {
       form:{
-        company: "",
-        position: "",
-        listing: "",
-        salary: "",
-        contact: "",
-        contact_email: "",
-        date_applied: "",
-        summary: "",
-        interview: "",
-        follow_up: "No",
-        status: "In Process",
-        notes: ""
+        company: this.props.application.company,
+        position: this.props.application.position,
+        listing: this.props.application.listing,
+        salary: this.props.application.salary,
+        contact: this.props.application.contact,
+        contact_email: this.props.application.contact_email,
+        date_applied: this.props.application.date_applied,
+        summary: this.props.application.summary,
+        interview: this.props.application.interview,
+        follow_up: this.props.application.follow_up,
+        status: this.props.application.status,
+        notes: this.props.application.notes
       },
       success: false
     }
@@ -33,8 +33,7 @@ handleChange = (e) => {
 
 handleSubmit = (e) => {
     e.preventDefault()
-    this.props.createNewApplication(this.state.form)
-    console.log(this.state.form)
+    this.props.updateApplication(this.state.form, this.props.application.id)
     this.setState({ success: true })
 }
 
@@ -134,15 +133,15 @@ render(){
                       />
                   </FormGroup>
 
-                  {/* <FormGroup>
+                  <FormGroup>
                           <Label>Follow Up</Label>
                           <FormGroup check>
                             <Label check>
                                 <Input
                                   type="radio"
                                   name="follow_up"
-                                  value="yes"
-                                  checked={ form.follow_up === "yes" }
+                                  value="Yes"
+                                  checked={ form.follow_up === "Yes" }
                                   onChange={ this.handleChange }
                                 />
                                 Yes
@@ -154,16 +153,16 @@ render(){
                                 <Input
                                   type="radio"
                                   name="follow_up"
-                                  value="no"
-                                  checked={ form.follow_up === "no" }
+                                  value="No"
+                                  checked={ form.follow_up === "No" }
                                   onChange={ this.handleChange }
                                 />
                                 No
                             </Label>
                           </FormGroup>
-                      </FormGroup> */}
+                      </FormGroup>
 
-                  {/* <FormGroup>
+                  <FormGroup>
                       <Label>Status</Label>
                       <FormGroup check>
                         <Label check>
@@ -203,7 +202,7 @@ render(){
                             Rejected
                         </Label>
                       </FormGroup>
-                  </FormGroup> */}
+                  </FormGroup>
 
                   <FormGroup>
                       <Label>Notes</Label>
@@ -221,7 +220,7 @@ render(){
                     className="form-submit-btn"
                     onClick={ this.handleSubmit }
                   >
-                    Add a new Job Application
+                    Edit Application
                   </Button>
                 </Form>
             </div>
@@ -232,4 +231,4 @@ render(){
 }
 }
 
-export default ApplicationForm
+export default ApplicationEditForm
