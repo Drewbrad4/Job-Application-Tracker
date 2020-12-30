@@ -40,7 +40,24 @@ class App extends React.Component {
   }
 
   createNewApplication = (application) => {
-    fetch("/applications")
+    return fetch("/applications", {
+      body: JSON.stringify(application),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if(response.status === 200){
+      this.applicationIndex()
+      } else if(response.status === 422){
+        alert("Invalid Submission")
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("create errors:", errors);
+    })
   }
 
   render () {
@@ -51,12 +68,20 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path="/" component={ Home } />
-          <Route path="/new" component={ NewApplication } />
+          <Route
+            path="/new" render={(props) => {
+              return (
+                <NewApplication
+                  createNewApplication={ this.createNewApplication }
+                />
+              )
+            }}
+          />
           <Route
             path="/index" render={(props) => {
               return (
                 <ApplicationIndex
-                  applications={this.state.applications}
+                  applications={ this.state.applications }
                 />
               )
             }}
@@ -67,7 +92,7 @@ class App extends React.Component {
               let id = props.match.params.id
               let application = this.state.applications.find(application => application.id === parseInt(id))
               return(
-                <ApplicationShow application={application}/>
+                <ApplicationShow application={ application }/>
               )
             }}
           />

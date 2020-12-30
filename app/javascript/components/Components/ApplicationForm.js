@@ -33,8 +33,8 @@ handleChange = (e) => {
 
 handleSubmit = (e) => {
     e.preventDefault()
-    // this.props.createNewApartment(this.state.form)
-    console.log(this.state.form);
+    this.props.createNewApplication(this.state.form)
+    // console.log(this.state.form);
     this.setState({ success: true })
 }
 

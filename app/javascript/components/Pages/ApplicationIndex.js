@@ -12,7 +12,7 @@ class ApplicationIndex extends Component {
         { this.props.applications.map((application, index) => {
           return(
             <div key={index} className="applicationCard">
-              <h3>{application.position} AT {application.company}</h3>
+              <h3>{application.position} - {application.company}</h3>
               <h5>{application.listing}</h5>
               <p>Status: {application.status}</p>
               <Link to={`/applications/${application.id}`} className="button">
