@@ -7,7 +7,7 @@ class NewApplication extends Component {
     return (
       <>
         <h1>New Application</h1>
-        <ApplicationForm />
+        <ApplicationForm createNewApplication={ this.props.createNewApplication }/>
       </>
     );
   }

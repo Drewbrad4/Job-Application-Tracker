@@ -9,7 +9,7 @@ class ApplicationShow extends Component {
     return (
       <div className="show">
               <div className="apartmentCard">
-                  <h3 className="heading">{application.position} AT {application.company}</h3>
+                  <h3 className="heading">{application.position} - {application.company}</h3>
                   <p className="app-info">Salary: {application.salary}</p>
                   <p className="app-info">Contact: {application.contact} - {application.contact_email}</p>
                   <p className="app-info">Date Applied: {application.date_applied}</p>
