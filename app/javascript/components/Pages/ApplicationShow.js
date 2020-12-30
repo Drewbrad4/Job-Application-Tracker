@@ -24,6 +24,9 @@ class ApplicationShow extends Component {
                   <Link to={`/editapplication/${application.id}`} className="button">
                       <Button className="info">Edit Application</Button>
                   </Link>
+                  <Link to={`/applications`} className="button">
+                      <Button className="info" onClick={() => {this.props.deleteApplication(application.id)}}>Delete Application</Button>
+                  </Link>
                   <Link to="/applications" className="button">
                       <Button className="info">Back to All Applications</Button>
                   </Link>

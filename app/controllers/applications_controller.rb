@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
     def index
-        applications = Application.all
+        applications = current_user.applications.all
         render json: applications
     end
 
@@ -19,7 +19,7 @@ class ApplicationsController < ApplicationController
     end
 
     def update
-        application = Application.find(params[:id])
+        application = current_user.applications.find(params[:id])
         application.update(application_params)
         if application.valid?
           render json: application
@@ -28,8 +28,17 @@ class ApplicationsController < ApplicationController
         end
     end
 
+    def destroy
+        application = current_user.applications.find(params[:id])
+        if application.destroy
+          render json: application
+        else
+          render json: application.errors, status: :unprocessable_entity
+        end
+    end
+
     private
     def application_params
-        params.require(:application).permit(:company, :position, :listing, :salary, :contact, :contact_email, :date_applied, :summary, :interview, :follow_up, :status, :notes)
+        params.require(:application).permit(:company, :position, :listing, :salary, :contact, :contact_email, :date_applied, :summary, :interview, :follow_up, :status, :notes, :user_id)
     end
 end
