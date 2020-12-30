@@ -80,11 +80,39 @@ class App extends React.Component {
     })
   }
 
+  deleteApplication = (id) => {
+    return fetch(`/applications/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => {
+      alert("Application deleted.")
+      this.applicationIndex()
+      return response
+    })
+    .catch(errors => {
+      console.log("delete errors:", errors)
+    })
+  }
+
   render () {
+    const {
+      logged_in,
+      sign_in_route,
+      sign_out_route,
+      current_user
+    } = this.props
+    console.log(current_user);
     return (
       <Router>
 
-        <Header />
+        <Header
+          logged_in={ logged_in }
+          sign_in_route={ sign_in_route }
+          sign_out_route={ sign_out_route }
+        />
 
         <Switch>
           <Route exact path="/" component={ Home } />
@@ -93,6 +121,7 @@ class App extends React.Component {
               return (
                 <NewApplication
                   createNewApplication={ this.createNewApplication }
+                  current_user={ current_user }
                 />
               )
             }}
@@ -112,7 +141,10 @@ class App extends React.Component {
               let id = props.match.params.id
               let application = this.state.applications.find(application => application.id === parseInt(id))
               return(
-                <ApplicationShow application={ application }/>
+                <ApplicationShow
+                  application={ application }
+                  deleteApplication={this.deleteApplication}
+                />
               )
             }}
           />
@@ -125,6 +157,7 @@ class App extends React.Component {
                 <ApplicationEdit
                   application={ application }
                   updateApplication={ this.updateApplication }
+                  current_user={ current_user }
                 />
               )
             }}

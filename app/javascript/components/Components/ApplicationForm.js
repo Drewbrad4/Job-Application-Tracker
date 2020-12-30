@@ -19,7 +19,8 @@ class ApplicationForm extends Component {
         interview: "",
         follow_up: "No",
         status: "In Process",
-        notes: ""
+        notes: "",
+        user_id: this.props.current_user.id
       },
       success: false
     }
