@@ -19,7 +19,7 @@ const Header = () => {
         </NavItem>
         <NavItem>
         <NavLink
-            to="/new"
+            to="/newapplication"
             activeClassName="selected"
           >
             New Application
@@ -27,7 +27,7 @@ const Header = () => {
         </NavItem>
         <NavItem>
         <NavLink
-            to="/index"
+            to="/applications"
             activeClassName="selected"
           >
             Applications

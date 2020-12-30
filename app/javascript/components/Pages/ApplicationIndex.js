@@ -15,7 +15,7 @@ class ApplicationIndex extends Component {
               <h3>{application.position} - {application.company}</h3>
               <h5>{application.listing}</h5>
               <p>Status: {application.status}</p>
-              <Link to={`/applications/${application.id}`} className="button">
+              <Link to={`/application/${application.id}`} className="button">
                   <Button className="info">More Info</Button>
               </Link>
             </div>

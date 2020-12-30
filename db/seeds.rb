@@ -17,7 +17,7 @@ applications = Application.create([
         date_applied: "2020-12-30T14:32",
         summary: "Sent in resume and cover letter. Spoke to Jared about company culture.",
         interview: "2021-01-08T15:45",
-        follow_up: false,
+        follow_up: "No",
         status: "In Process",
         notes: "The sandwiches are just okay"
     },
@@ -30,8 +30,8 @@ applications = Application.create([
         contact_email: "emma@lego.com",
         date_applied: "2020-11-25T12:32",
         summary: "Sent in resume and cover letter. Spoke to Emma about company culture.",
-        interview: "2021-01-10T11:45",
-        follow_up: false,
+        interview: "",
+        follow_up: "No",
         status: "In Process",
         notes: ""
     }
