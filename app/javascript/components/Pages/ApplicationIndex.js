@@ -6,8 +6,8 @@ import { Button } from 'reactstrap'
 class ApplicationIndex extends Component {
   render () {
     return (
-      <>
-        <h1>Applications</h1>
+      <div className="page">
+        <h1 className="heading">Applications</h1>
 
         { this.props.applications.map((application, index) => {
           return(
@@ -21,7 +21,7 @@ class ApplicationIndex extends Component {
             </div>
           )
         })}
-      </>
+      </div>
     );
   }
 }

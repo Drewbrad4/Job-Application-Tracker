@@ -46,7 +46,7 @@ render(){
             <div className="form">
                 <Form>
                   <FormGroup>
-                      <Label>Company</Label>
+                      <Label>Company:</Label>
                       <Input
                         type="text"
                         name="company"
@@ -56,7 +56,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Position</Label>
+                      <Label>Position:</Label>
                       <Input
                         type="text"
                         name="position"
@@ -66,7 +66,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Listing</Label>
+                      <Label>Listing:</Label>
                       <Input
                         type="text"
                         name="listing"
@@ -76,7 +76,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Salary</Label>
+                      <Label>Salary:</Label>
                       <Input
                         type="text"
                         name="salary"
@@ -86,7 +86,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Contact</Label>
+                      <Label>Contact:</Label>
                       <Input
                         type="text"
                         name="contact"
@@ -96,7 +96,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Contact Email</Label>
+                      <Label>Contact Email:</Label>
                       <Input
                         type="text"
                         name="contact_email"
@@ -106,7 +106,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Date Applied</Label>
+                      <Label>Date Applied:</Label>
                       <Input
                         type="datetime-local"
                         name="date_applied"
@@ -116,7 +116,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Summary</Label>
+                      <Label>Summary:</Label>
                       <Input
                         type="textarea"
                         name="summary"
@@ -126,7 +126,7 @@ render(){
                   </FormGroup>
 
                   <FormGroup>
-                      <Label>Interview</Label>
+                      <Label>Interview:</Label>
                       <Input
                         type="datetime-local"
                         name="interview"
@@ -135,79 +135,8 @@ render(){
                       />
                   </FormGroup>
 
-                  {/* <FormGroup>
-                          <Label>Follow Up</Label>
-                          <FormGroup check>
-                            <Label check>
-                                <Input
-                                  type="radio"
-                                  name="follow_up"
-                                  value="yes"
-                                  checked={ form.follow_up === "yes" }
-                                  onChange={ this.handleChange }
-                                />
-                                Yes
-                            </Label>
-                          </FormGroup>
-
-                          <FormGroup check>
-                            <Label check>
-                                <Input
-                                  type="radio"
-                                  name="follow_up"
-                                  value="no"
-                                  checked={ form.follow_up === "no" }
-                                  onChange={ this.handleChange }
-                                />
-                                No
-                            </Label>
-                          </FormGroup>
-                      </FormGroup> */}
-
-                  {/* <FormGroup>
-                      <Label>Status</Label>
-                      <FormGroup check>
-                        <Label check>
-                            <Input
-                              type="radio"
-                              name="status"
-                              value="In Process"
-                              checked={ form.status === "In Process" }
-                              onChange={ this.handleChange }
-                            />
-                            In-Process
-                        </Label>
-                      </FormGroup>
-
-                      <FormGroup check>
-                        <Label check>
-                            <Input
-                              type="radio"
-                              name="status"
-                              value="Submitted"
-                              checked={ form.status === "Submitted" }
-                              onChange={ this.handleChange }
-                            />
-                            Submitted
-                        </Label>
-                      </FormGroup>
-
-                      <FormGroup check>
-                        <Label check>
-                            <Input
-                              type="radio"
-                              name="status"
-                              value="Rejected"
-                              checked={ form.status === "Rejected" }
-                              onChange={ this.handleChange }
-                            />
-                            Rejected
-                        </Label>
-                      </FormGroup>
-                  </FormGroup> */}
-
                   <FormGroup>
-                      <Label>Notes</Label>
+                      <Label>Notes:</Label>
                       <Input
                         type="textarea"
                         name="notes"
@@ -227,7 +156,7 @@ render(){
                 </Form>
             </div>
 
-            { success && <Redirect to="/applications" /> }
+            { success && <Redirect to="/index" /> }
         </div>
     )
 }

@@ -37,7 +37,7 @@ const Header = ({logged_in, sign_in_route, sign_out_route}) => {
             </NavItem>
             <NavItem>
               <NavLink
-                to="/applications"
+                to="/index"
                 activeClassName="selected"
               >
                 Applications

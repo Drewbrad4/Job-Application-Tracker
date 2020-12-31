@@ -225,7 +225,7 @@ render(){
                 </Form>
             </div>
 
-            { success && <Redirect to="/applications" /> }
+            { success && <Redirect to="/index" /> }
         </div>
     )
 }

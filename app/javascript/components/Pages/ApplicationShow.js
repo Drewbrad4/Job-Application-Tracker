@@ -7,9 +7,9 @@ class ApplicationShow extends Component {
   render () {
     const {application} = this.props
     return (
-      <div className="show">
-              <div className="apartmentCard">
-                  <h3 className="heading">{application.position} - {application.company}</h3>
+      <div className="page">
+              <div className="applicationCard">
+                  <h3 className="show-heading">{application.position} - {application.company}</h3>
                   <p className="app-info">Listing: <a href={`http://${application.listing}`}>{application.listing}</a></p>
                   <p className="app-info">Salary: {application.salary}</p>
                   <p className="app-info">Contact: {application.contact} - {application.contact_email}</p>
@@ -24,10 +24,10 @@ class ApplicationShow extends Component {
                   <Link to={`/editapplication/${application.id}`} className="button">
                       <Button className="info">Edit Application</Button>
                   </Link>
-                  <Link to={`/applications`} className="button">
+                  <Link to={`/index`} className="button">
                       <Button className="info" onClick={() => {this.props.deleteApplication(application.id)}}>Delete Application</Button>
                   </Link>
-                  <Link to="/applications" className="button">
+                  <Link to="/index" className="button">
                       <Button className="info">Back to All Applications</Button>
                   </Link>
               </div>
