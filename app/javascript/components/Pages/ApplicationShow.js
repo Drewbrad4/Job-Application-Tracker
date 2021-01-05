@@ -21,15 +21,21 @@ class ApplicationShow extends Component {
                   <p className="app-info">Status: {application.status}</p>
                   { application.notes &&
                   <p className="app-info">Notes: {application.notes}</p>}
-                  <Link to={`/editapplication/${application.id}`} className="button">
-                      <Button className="info">Edit Application</Button>
-                  </Link>
-                  <Link to={`/index`} className="button">
-                      <Button className="info" onClick={() => {this.props.deleteApplication(application.id)}}>Delete Application</Button>
-                  </Link>
-                  <Link to="/index" className="button">
-                      <Button className="info">Back to All Applications</Button>
-                  </Link>
+                  <Button>
+                    <Link to={`/editapplication/${application.id}`} className="button">
+                        Edit Application
+                    </Link>
+                  </Button>
+                  <Button className="delete-btn" onClick={() => {this.props.deleteApplication(application.id)}}>
+                    <Link to={`/index`} className="button">
+                        Delete Application
+                    </Link>
+                  </Button>
+                  <Button>
+                    <Link to="/index" className="button">
+                        Back to All Applications
+                    </Link>
+                  </Button>
               </div>
           </div>
     );

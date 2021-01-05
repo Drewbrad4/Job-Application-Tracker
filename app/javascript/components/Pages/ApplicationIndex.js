@@ -9,18 +9,20 @@ class ApplicationIndex extends Component {
       <div className="page">
         <h1 className="heading">Applications</h1>
 
-        { this.props.applications.map((application, index) => {
-          return(
-            <div key={index} className="applicationCard">
-              <h3>{application.position} - {application.company}</h3>
-              <h5>{application.listing}</h5>
-              <p>Status: {application.status}</p>
-              <Link to={`/application/${application.id}`} className="button">
-                  <Button className="info">More Info</Button>
-              </Link>
-            </div>
-          )
-        })}
+        <div className="index">
+          { this.props.applications.map((application, index) => {
+            return(
+              <div key={index} className="applicationCard">
+                <h3>{application.position} - {application.company}</h3>
+                <h5>{application.listing}</h5>
+                <p>Status: {application.status}</p>
+                <Link to={`/application/${application.id}`} className="button">
+                    <Button>More Info</Button>
+                </Link>
+              </div>
+            )
+          })}
+        </div>
       </div>
     );
   }
