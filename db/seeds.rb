@@ -6,7 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-applications = Application.create([
+users = User.create!([
+    {
+        id: 1,
+        email: "test@example.com",
+        password: "test123",
+        password_confirmation: "test123",
+    }
+])
+
+applications = Application.create!([
     {
         company: "Subway",
         position: "Sandwich Clerk",
@@ -19,7 +28,8 @@ applications = Application.create([
         interview: "2021-01-08T15:45",
         follow_up: "No",
         status: "In Process",
-        notes: "The sandwiches are just okay"
+        notes: "The sandwiches are just okay",
+        user_id: 1
     },
     {
         company: "Legoland",
@@ -33,6 +43,7 @@ applications = Application.create([
         interview: "",
         follow_up: "No",
         status: "In Process",
-        notes: ""
+        notes: "",
+        user_id: 1
     }
 ])
