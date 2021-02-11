@@ -20,13 +20,15 @@ const Header = ({logged_in, sign_in_route, sign_out_route}) => {
         </NavItem>
 
         { !logged_in &&
-          <NavItem>
-            <a href={sign_in_route}>Sign In</a>
-          </NavItem>
+          <>
+            <NavItem>
+              <a href={sign_in_route}>Sign In</a>
+            </NavItem>
+          </>
         }
 
         { logged_in &&
-          <div>
+          <>
             <NavItem>
               <NavLink
                 to="/newapplication"
@@ -37,7 +39,7 @@ const Header = ({logged_in, sign_in_route, sign_out_route}) => {
             </NavItem>
             <NavItem>
               <NavLink
-                to="/applications"
+                to="/index"
                 activeClassName="selected"
               >
                 Applications
@@ -46,7 +48,7 @@ const Header = ({logged_in, sign_in_route, sign_out_route}) => {
             <NavItem>
               <a href={sign_out_route}>Sign Out</a>
             </NavItem>
-        </div>
+        </>
         }
       </Nav>
     </div>

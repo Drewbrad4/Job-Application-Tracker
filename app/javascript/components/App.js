@@ -127,7 +127,7 @@ class App extends React.Component {
             }}
           />
           <Route
-            path="/applications" render={(props) => {
+            path="/index" render={(props) => {
               return (
                 <ApplicationIndex
                   applications={ this.state.applications }

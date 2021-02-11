@@ -13,6 +13,66 @@
  *= require_tree .
  *= require_self
  */
+//.................................................................... OVERALL
+
+body {
+    margin: 0;
+    background-color: #F3E9E2;
+}
+
+.heading {
+    text-align: center;
+    color: #FFFFFF;
+    background-color:rgba($color: #283D3B, $alpha: 0.8);
+    margin: 2rem;
+    padding: 2rem;
+    width: 20rem;
+    border-radius: 1.5rem;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.devise {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.devise-box {
+    background-color: rgba($color: #197278, $alpha: 0.8);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    width: 30vw;
+    text-align: center;
+}
+
+.field, .actions {
+    padding: 1rem;
+}
+
+.btn {
+    background-color: #F3E8E2;
+    color: black;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.btn:hover {
+    background-color: #197278;
+}
+
+.delete-btn:hover {
+    background-color: #C44536;
+}
 
  //.................................................................... HEADER
 .nav {
@@ -24,8 +84,10 @@
 }
 
 #header {
-    background-color: #4b5a7c;
+    background-color: #197278;
     font-size: 1.3rem;
+    padding: 1.5rem;
+    // width: 100vw;
 }
 
 .title {
@@ -47,16 +109,94 @@ li {
     color: white;
 }
 
+.loggedIn {
+    display: flex;
+}
+
+ //.................................................................... HOME
+
+.home {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #C44536;
+    margin: 3rem;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+}
+
  //.................................................................... INDEX
+.index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 2vh;
+    padding-bottom: 4vh;
+    height: 100%;
+    overflow: hidden;
+}
+
 
 .applicationCard {
-     background-color: rgba($color: #5c636a, $alpha: 0.6);
+     background-color: rgba($color: #9C3D30, $alpha: 0.8);
      width: 25vw;
      margin: 20px;
      display: flex;
      flex-direction: column;
-     border-radius: 10px;
+     border-radius: 1.5rem;
      padding: 5px;
-     border: 1.5px solid #4A7C59;
+     border: 1.5px solid #C44536;
      text-align: center;
  }
+
+ //.................................................................... NEW
+
+.form-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.form-group {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: baseline;
+}
+
+.form {
+    text-align: center;
+    padding: 20px;
+    background-color: transparentize($color: #C44536, $amount: 0.3);
+    font-size: 20px;
+    width: 50%;
+    color: white;
+    border-radius: 1.5rem;
+    width: 35vw;
+}
+
+label {
+    padding: 5px;
+}
+
+.form-submit-btn {
+    text-align: center;
+}
+
+textarea {
+    height: 3rem;
+}
+
+//.................................................................... SHOW
+
+.app-info {
+    text-align: center;
+}
+
+.show-heading {
+    color: white;
+}

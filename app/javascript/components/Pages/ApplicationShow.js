@@ -1,35 +1,32 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import { Button, Table } from 'reactstrap'
+import ApplicationTable from '../Components/ApplicationTable'
 
 const ApplicationShow = ({application}) => {
   return (
-    <div className="show">
-            <div className="apartmentCard">
-                <h3 className="heading">{application.position} - {application.company}</h3>
-                <p className="app-info">Listing: <a href={`http://${application.listing}`}>{application.listing}</a></p>
-                <p className="app-info">Salary: {application.salary}</p>
-                <p className="app-info">Contact: {application.contact} - {application.contact_email}</p>
-                <p className="app-info">Date Applied: {application.date_applied}</p>
-                <p className="app-info">Summary: {application.summary}</p>
-                { application.interview &&
-                <p className="app-info">Interview: {application.interview}</p>}
-                <p className="app-info">Follow Up: {application.follow_up}</p>
-                <p className="app-info">Status: {application.status}</p>
-                { application.notes &&
-                <p className="app-info">Notes: {application.notes}</p>}
-                <Link to={`/editapplication/${application.id}`} className="button">
-                    <Button className="info">Edit Application</Button>
-                </Link>
-                <Link to={`/applications`} className="button">
-                    <Button className="info" onClick={() => {this.props.deleteApplication(application.id)}}>Delete Application</Button>
-                </Link>
-                <Link to="/applications" className="button">
-                    <Button className="info">Back to All Applications</Button>
-                </Link>
-            </div>
-        </div>
+    <div className="page">
+      <div className="applicationCard">
+      {/* className="app-info" className="show-heading" */}
+        <ApplicationTable application={application} />
+        <Button>
+              <Link to={`/editapplication/${application.id}`} className="button">
+                  Edit Application
+              </Link>
+            </Button>
+            <Button className="delete-btn" onClick={() => {this.props.deleteApplication(application.id)}}>
+              <Link to={`/index`} className="button">
+                  Delete Application
+              </Link>
+            </Button>
+            <Button>
+              <Link to="/index" className="button">
+                  Back to All Applications
+              </Link>
+            </Button>
+      </div>
+    </div>
   );
 }
 

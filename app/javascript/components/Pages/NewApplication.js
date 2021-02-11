@@ -4,13 +4,13 @@ import ApplicationForm from '../Components/ApplicationForm'
 
 const NewApplication = ({createNewApplication, current_user}) => {
   return (
-    <>
-      <h1>New Application</h1>
+    <div className="page">
+      <h1 className="heading">New Application</h1>
       <ApplicationForm
         createNewApplication={ createNewApplication }
         current_user={ current_user }
       />
-    </>
+    </div>
   );
 }
 
